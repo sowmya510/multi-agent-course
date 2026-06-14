@@ -1,0 +1,389 @@
+:root {
+  --ink: #16140f;
+  --paper: #fff8e7;
+  --yellow: #ffd60a;
+  --yellow-dark: #f4b400;
+  --green: #2fae66;
+  --green-dark: #1f8a4e;
+  --coral: #ff5a36;
+  --sky: #3b82f6;
+  --card: #ffffff;
+  --muted: #6b6357;
+  --shadow: 5px 5px 0 var(--ink);
+  --shadow-sm: 3px 3px 0 var(--ink);
+  --border: 3px solid var(--ink);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Fredoka", system-ui, "Trebuchet MS", sans-serif;
+  font-weight: 500;
+  color: var(--ink);
+  background-color: var(--paper);
+  /* explorer "topo map" texture */
+  background-image:
+    radial-gradient(circle at 50% 50%, rgba(47, 174, 102, 0.06) 0 2px, transparent 2px),
+    radial-gradient(circle at 0 0, rgba(244, 180, 0, 0.07) 0 2px, transparent 2px);
+  background-size: 34px 34px, 34px 34px;
+  background-position: 0 0, 17px 17px;
+  line-height: 1.5;
+}
+
+h1, h2, h3 { line-height: 1.15; }
+button { font-family: inherit; cursor: pointer; }
+a { color: var(--green-dark); }
+
+.display {
+  font-family: "Luckiest Guy", "Fredoka", cursive;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+/* ---------- Buttons ---------- */
+.btn-primary {
+  background: var(--yellow);
+  color: var(--ink);
+  border: var(--border);
+  border-radius: 14px;
+  padding: 0.7rem 1.4rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+.btn-primary:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+.btn-primary:active { transform: translate(3px, 3px); box-shadow: 0 0 0 var(--ink); }
+.btn-saved {
+  background: var(--green);
+  color: #fff;
+  border: var(--border);
+  border-radius: 14px;
+  padding: 0.7rem 1.4rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+}
+.btn-ghost {
+  background: #fff;
+  border: var(--border);
+  color: var(--ink);
+  border-radius: 14px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-sm);
+}
+.btn-ghost:active { transform: translate(3px, 3px); box-shadow: 0 0 0 var(--ink); }
+.block { display: block; width: 100%; margin-top: 0.75rem; }
+
+/* ---------- Auth pages ---------- */
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0 14px, transparent 14px 28px),
+    var(--yellow);
+}
+.auth-card {
+  background: var(--card);
+  border: var(--border);
+  border-radius: 26px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+.logo { font-size: 2.4rem; margin: 0; }
+.tagline { color: var(--muted); margin: 0.4rem 0 1.5rem; font-weight: 600; }
+.auth-card form { text-align: left; }
+.auth-card label { display: block; font-weight: 700; margin: 0.85rem 0 0.3rem; }
+.auth-card input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: var(--border);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #fffdf7;
+}
+.auth-card input:focus { outline: none; box-shadow: var(--shadow-sm); }
+.switch { margin-top: 1.4rem; color: var(--muted); font-weight: 600; }
+.switch a { font-weight: 700; }
+.error {
+  background: #ffe1d8;
+  color: #b3260a;
+  border: 2px solid #b3260a;
+  padding: 0.55rem 0.8rem;
+  border-radius: 12px;
+  margin: 0.85rem 0 0;
+  font-weight: 700;
+}
+
+/* ---------- Nav ---------- */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1.4rem;
+  background: var(--yellow);
+  border-bottom: var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.nav-logo { font-family: "Luckiest Guy", cursive; font-size: 1.5rem; text-decoration: none; color: var(--ink); }
+.nav-links { display: flex; align-items: center; gap: 0.9rem; flex-wrap: wrap; }
+.nav-links a { text-decoration: none; color: var(--ink); font-weight: 700; }
+.nav-links a:hover { text-decoration: underline wavy; }
+.nav-user { color: #6b5a1e; font-size: 0.82rem; font-weight: 600; }
+
+/* ---------- Page ---------- */
+.page { max-width: 1040px; margin: 0 auto; padding: 1.5rem; }
+.page-title { font-size: 2rem; margin: 0.4rem 0 0.2rem; }
+.page-sub { color: var(--muted); margin: 0 0 1.4rem; font-weight: 600; }
+.loading, .empty {
+  color: var(--ink);
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 2.5rem;
+  background: #fff;
+  border: var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-sm);
+}
+.loading-screen { display: grid; place-items: center; height: 100vh; font-weight: 700; font-size: 1.2rem; }
+
+/* ---------- Hero ---------- */
+.hero {
+  background: var(--green);
+  border: var(--border);
+  border-radius: 26px;
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  margin-bottom: 1.6rem;
+  color: #fff;
+  background-image:
+    radial-gradient(circle at 90% 10%, rgba(255,255,255,0.16) 0 60px, transparent 60px),
+    radial-gradient(circle at 12% 90%, rgba(0,0,0,0.08) 0 80px, transparent 80px);
+}
+.hero-kicker {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--ink);
+  border: var(--border);
+  border-radius: 999px;
+  padding: 0.25rem 0.9rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin: 0 0 0.7rem;
+  box-shadow: var(--shadow-sm);
+}
+.hero-title { font-family: "Luckiest Guy", cursive; font-size: clamp(1.8rem, 5vw, 3rem); margin: 0 0 0.5rem; text-shadow: 3px 3px 0 rgba(0,0,0,0.25); }
+.hero-sub { font-weight: 600; margin: 0 0 1.2rem; max-width: 46ch; }
+
+/* ---------- Search ---------- */
+.search-bar { display: flex; gap: 0.6rem; max-width: 560px; }
+.search-bar input {
+  flex: 1;
+  padding: 0.85rem 1.1rem;
+  border: var(--border);
+  border-radius: 14px;
+  font-size: 1.05rem;
+  font-family: inherit;
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+}
+.search-bar input:focus { outline: none; }
+.search-bar .btn-primary { white-space: nowrap; }
+
+.filter-label { font-weight: 700; margin: 0.2rem 0 0.5rem; font-size: 0.95rem; }
+.subject-row, .difficulty-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.subj, .diff {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #fff;
+  border: var(--border);
+  border-radius: 999px;
+  padding: 0.4rem 0.85rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.06s ease;
+}
+.subj:hover, .diff:hover { transform: translateY(-2px); }
+.subj.active { background: var(--ink); color: #fff; }
+.diff.active { background: var(--yellow); }
+.subj-emoji { font-size: 1.1rem; }
+
+/* ---------- Cards ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(258px, 1fr));
+  gap: 1.3rem;
+}
+.card {
+  background: var(--card);
+  border: var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.card:hover { transform: translate(-2px, -3px); box-shadow: 7px 8px 0 var(--ink); }
+.card-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1rem;
+  color: #fff;
+  border-bottom: var(--border);
+  font-weight: 700;
+}
+.card-emoji { font-size: 1.7rem; filter: drop-shadow(1px 1px 0 rgba(0,0,0,0.3)); }
+.card-subject { font-size: 0.95rem; text-shadow: 1px 1px 0 rgba(0,0,0,0.25); }
+.card-body { padding: 1rem; display: flex; flex-direction: column; gap: 0.55rem; flex: 1; }
+.card-body h3 { margin: 0; font-size: 1.18rem; }
+.card-summary { color: var(--muted); font-size: 0.92rem; margin: 0; flex: 1; font-weight: 500; }
+.card-meta { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.card-foot { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-top: 0.3rem; }
+
+.pill {
+  background: var(--yellow);
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  padding: 0.12rem 0.6rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+.pill.ghost { background: #fff; }
+.avg { font-weight: 700; font-size: 0.95rem; }
+
+.chip {
+  border: 2px solid var(--ink);
+  background: var(--yellow);
+  color: var(--ink);
+  font-weight: 700;
+  padding: 0.32rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+.chip:active { transform: translate(2px, 2px); box-shadow: 0 0 0 var(--ink); }
+.chip.saved { background: var(--green); color: #fff; }
+
+/* ---------- Detail ---------- */
+.back {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  background: #fff;
+  border: var(--border);
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  box-shadow: var(--shadow-sm);
+  color: var(--ink);
+}
+.detail-card {
+  background: var(--card);
+  border: var(--border);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.detail-hero {
+  padding: 2rem;
+  color: #fff;
+  border-bottom: var(--border);
+  background-image: radial-gradient(circle at 88% 16%, rgba(255,255,255,0.18) 0 70px, transparent 70px);
+}
+.detail-hero .detail-emoji { font-size: 3.5rem; filter: drop-shadow(2px 2px 0 rgba(0,0,0,0.3)); }
+.detail-hero h1 { font-family: "Luckiest Guy", cursive; font-size: clamp(1.6rem, 4.5vw, 2.4rem); margin: 0.5rem 0 0.4rem; text-shadow: 2px 2px 0 rgba(0,0,0,0.25); }
+.detail-hero .summary { font-weight: 600; margin: 0; max-width: 55ch; }
+.detail-body { padding: 2rem; }
+
+.badges { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.8rem; }
+.badge {
+  background: rgba(255,255,255,0.92);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+}
+
+.rating-row { display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; margin: 0.4rem 0 1.4rem; }
+.rating-label { font-weight: 700; }
+.stars { display: inline-flex; gap: 0.15rem; }
+.star {
+  border: none;
+  background: none;
+  font-size: 2.1rem;
+  color: #e4dcc4;
+  padding: 0;
+  line-height: 1;
+  transition: transform 0.08s ease;
+}
+.star:hover { transform: scale(1.2) rotate(-6deg); }
+.star.on { color: var(--yellow-dark); }
+.avg.big { font-size: 1rem; }
+
+.detail-body h2 { font-size: 1.3rem; margin: 1.6rem 0 0.6rem; display: flex; align-items: center; gap: 0.5rem; }
+.materials {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.5rem;
+}
+.materials li {
+  background: #fffbe9;
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  padding: 0.5rem 0.8rem;
+  font-weight: 600;
+}
+.materials li::before { content: "🧰 "; }
+.steps { padding: 0; margin: 0; list-style: none; counter-reset: step; }
+.steps li {
+  counter-increment: step;
+  position: relative;
+  background: #fff;
+  border: 2px solid var(--ink);
+  border-radius: 14px;
+  padding: 0.8rem 0.9rem 0.8rem 3.2rem;
+  margin: 0.6rem 0;
+  font-weight: 500;
+  box-shadow: var(--shadow-sm);
+}
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0.7rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.9rem;
+  height: 1.9rem;
+  display: grid;
+  place-items: center;
+  background: var(--green);
+  color: #fff;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  font-family: "Luckiest Guy", cursive;
+  font-size: 1rem;
+}
